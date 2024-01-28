@@ -1,0 +1,21 @@
+# 스프링 부트는 별도의 설정이 없어도 메모리 DB로 돌려버린다. - 이 코드 없어도 메모리 DB로 설정됨
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # 이 옵션은 애플리케이션 종료 시점에 테이블을 drop / https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#application-properties.data.spring.jpa.hibernate.ddl-auto
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace # SQL 실행 파라미터를 로그로 남긴다.
