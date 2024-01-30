@@ -2,12 +2,15 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id
@@ -25,6 +28,9 @@ public class OrderItem {
 
     private int orderPrice; // 주문 가격
     private int count; // 주문 수량
+
+
+//    protected OrderItem() {}  //JPA는 protected까지 기본 생성자를 만들 수 있게 허용해줌 / 다른 패키지에서 OrderItem 생성을 막아둠 /@NoArgsConstructor(access = AccessLevel.PROTECTED) 로 생략 가능
 
 
     //생성 메서드
