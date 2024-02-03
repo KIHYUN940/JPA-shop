@@ -62,19 +62,24 @@ public class ItemController {
         return "items/updateItemForm";
     }
 
+    /**
+     * 상품 수정
+     */
     @PostMapping("items/{itemId}/edit")
-    public String updateItem(@ModelAttribute("form") BookForm form) {
+    public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {  //JPA에 들어갔다 나온 데이터 / DB에 한번 저장되어서 식별자가 존재 -> 준영속 엔티티 - 영속성 컨텍스트가 더는 관리하지 않는 엔티티
 
-        Book book = new Book();
+        Book book = new Book(); // Book -> 준영속 엔티티 / 준영속 엔티티를 수정하는 2가지 방법 1. 변경 감지 기능 사용 2. 병합(merge)사용
 
-        book.setId(form.getId());
-        book.setName(form.getName());
-        book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getStockQuantity());
-        book.setAuthor(form.getAuthor());
-        book.setIsbn(form.getIsbn());
+//        book.setId(form.getId());
+//        book.setName(form.getName());
+//        book.setPrice(form.getPrice());
+//        book.setStockQuantity(form.getStockQuantity());
+//        book.setAuthor(form.getAuthor());
+//        book.setIsbn(form.getIsbn());
+//        itemService.saveItem(book);
 
-        itemService.saveItem(book);
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
+
         return "redirect:/items";
     }
 }
