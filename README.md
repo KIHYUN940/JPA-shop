@@ -3,4 +3,5 @@
 [엔티티 설계시 주의점](https://kihyunhong.tistory.com/187)  
 [테스트 메서드 스프링 컨텍스트 초기화 되지 않는 현상 - @DirtiesContext로 해결](https://kihyunhong.tistory.com/188)  
 [정적 팩토리 메서드(static factory method)](https://kihyunhong.tistory.com/189)  
-[테스트 개념 / 단위 테스트, 통합 테스트, 슬라이스 테스트](https://kihyunhong.tistory.com/190)
+[테스트 개념 / 단위 테스트, 통합 테스트, 슬라이스 테스트](https://kihyunhong.tistory.com/190)  
+[준영속 엔티티 - 변경 감지와 병합(merge)](https://kihyunhong.tistory.com/191)
